@@ -1,0 +1,791 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!--ARTIFACT-START-->
+<title>Omni Beauty Reno</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Omni Beauty Reno — lash extensions, lash lifts, brow treatments, waxing and body sculpting in a private studio at 6165 Ridgeview Ct., Suite G, Reno, NV 89519. Book online.">
+<meta property="og:title" content="Omni Beauty Reno — Lash · Wax · Sculpt">
+<meta property="og:description" content="Enhancing your beauty & your confidence. Lash extensions, waxing and body sculpting in Reno, NV.">
+<meta property="og:image" content="assets/img/lash-closeup.webp">
+<meta name="theme-color" content="#0e0b08">
+<link rel="icon" href="assets/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400;1,6..96,500&family=Jost:wght@300;400;500&display=swap">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BeautySalon","name":"Omni Beauty Reno","image":"assets/img/lash-closeup.webp","telephone":"+1-775-384-1023","email":"Omni.reno@gmail.com","priceRange":"$$","address":{"@type":"PostalAddress","streetAddress":"6165 Ridgeview Ct., Suite G","addressLocality":"Reno","addressRegion":"NV","postalCode":"89519","addressCountry":"US"},"url":"https://www.omnireno.com","sameAs":["https://www.instagram.com/omni.reno","https://www.facebook.com/beautifulbeyondlashes"]}
+</script>
+<style>
+/* Layout concept: a night-studio editorial — warm black ground, one gold hairline accent taken from the logo ring.
+   The lash map (the numbered eye-pad an artist draws before every set) is the page's recurring device. */
+:root{
+  --ink:#0e0b08;        /* warm black ground */
+  --ink-2:#17120d;      /* raised panels */
+  --line:#3a2f23;       /* hairlines */
+  --gold:#edaf56;       /* logo gold — the only accent */
+  --gold-deep:#b9803a;
+  --cream:#f3eadc;      /* text */
+  --mute:#a99a86;       /* secondary text */
+  --display:"Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
+  --body:"Jost", "Futura", "Century Gothic", "Avenir Next", system-ui, sans-serif;
+  --step--1:clamp(.78rem,.74rem + .2vw,.88rem);
+  --step-0:clamp(1rem,.96rem + .2vw,1.1rem);
+  --step-1:clamp(1.25rem,1.1rem + .6vw,1.6rem);
+  --step-2:clamp(1.6rem,1.3rem + 1.4vw,2.6rem);
+  --step-3:clamp(2.2rem,1.6rem + 3vw,4.4rem);
+  --step-4:clamp(2.8rem,1.8rem + 5.2vw,7rem);
+  --gutter:max(16px, env(safe-area-inset-left, 0px));
+  --gutter-r:max(16px, env(safe-area-inset-right, 0px));
+  --wrap:1240px;
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--ink)}
+body{margin:0;background:var(--ink);color:var(--cream);font-family:var(--body);font-weight:300;font-size:var(--step-0);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--ink)}
+img,video{max-width:100%;display:block}
+a{color:inherit}
+::selection{background:var(--gold);color:var(--ink)}
+:focus-visible{outline:1px solid var(--gold);outline-offset:4px}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-left:var(--gutter);padding-right:var(--gutter-r)}
+.eyebrow{font-size:var(--step--1);letter-spacing:.32em;text-transform:uppercase;color:var(--gold);font-weight:400}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.02;margin:0;text-wrap:balance;letter-spacing:-.01em}
+h2{font-size:var(--step-3)}
+em,.it{font-style:italic;color:var(--gold)}
+p{margin:0;max-width:62ch}
+
+/* grain */
+.grain{position:fixed;inset:-50%;z-index:70;pointer-events:none;opacity:.07;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");animation:grain 1.2s steps(6) infinite}
+@keyframes grain{0%{transform:translate(0,0)}20%{transform:translate(-4%,3%)}40%{transform:translate(3%,-5%)}60%{transform:translate(-2%,6%)}80%{transform:translate(5%,2%)}100%{transform:translate(0,0)}}
+
+/* preloader */
+.loader{position:fixed;inset:0;z-index:100;background:var(--ink);display:grid;place-items:center;animation:loaderOut .9s cubic-bezier(.7,0,.2,1) 1.7s forwards}
+.loader svg{width:min(42vw,220px);overflow:visible}
+.loader circle{fill:none;stroke:var(--gold);stroke-width:1.2;stroke-dasharray:630;stroke-dashoffset:630;animation:draw 1.3s cubic-bezier(.6,0,.2,1) .1s forwards}
+.loader text{font-family:var(--body);font-weight:300;font-size:46px;letter-spacing:3px;fill:var(--gold);opacity:0;animation:fadeIn .7s ease .8s forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes fadeIn{to{opacity:1}}
+@keyframes loaderOut{to{clip-path:inset(0 0 100% 0);visibility:hidden}}
+.loader{clip-path:inset(0 0 0 0)}
+
+/* progress */
+.progress{position:fixed;left:0;top:env(safe-area-inset-top,0px);height:1px;width:100%;background:var(--gold);transform-origin:0 50%;transform:scaleX(0);z-index:61}
+
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;transition:background .4s,border-color .4s;border-bottom:1px solid transparent}
+.nav.scrolled{background:color-mix(in srgb,var(--ink) 82%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-block:14px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand img{width:46px;height:46px}
+.brand span{font-size:.72rem;letter-spacing:.34em;text-transform:uppercase;color:var(--mute)}
+.nav ul{display:flex;gap:34px;list-style:none;margin:0;padding:0}
+.nav ul a{text-decoration:none;font-size:.8rem;letter-spacing:.24em;text-transform:uppercase;position:relative;padding-block:6px}
+.nav ul a::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:100%;background:var(--gold);transform:scaleX(0);transform-origin:right;transition:transform .5s cubic-bezier(.7,0,.2,1)}
+.nav ul a:hover::after{transform:scaleX(1);transform-origin:left}
+.btn{--b:var(--gold);display:inline-flex;align-items:center;gap:.8em;padding:.95em 1.7em;border:1px solid var(--b);border-radius:999px;color:var(--ink);background:var(--b);text-decoration:none;font-size:.78rem;letter-spacing:.24em;text-transform:uppercase;font-weight:500;position:relative;overflow:hidden;isolation:isolate;transition:color .45s;will-change:transform;cursor:pointer;font-family:var(--body)}
+.btn::before{content:"";position:absolute;inset:0;background:var(--cream);transform:translateY(101%);border-radius:inherit;transition:transform .5s cubic-bezier(.7,0,.2,1);z-index:-1}
+.btn:hover::before{transform:translateY(0)}
+.btn.ghost{background:transparent;color:var(--cream)}
+.btn.ghost:hover{color:var(--ink)}
+.btn .arr{display:inline-block;transition:transform .4s}
+.btn:hover .arr{transform:translateX(4px)}
+.menu-btn{display:none;background:none;border:1px solid var(--line);color:var(--cream);border-radius:999px;padding:.7em 1.2em;font:inherit;font-size:.75rem;letter-spacing:.24em;text-transform:uppercase}
+.mobile-menu{position:fixed;inset:0;z-index:80;background:var(--ink);display:flex;flex-direction:column;justify-content:center;gap:10px;padding:max(24px,env(safe-area-inset-top,0px)) var(--gutter-r) 24px var(--gutter);clip-path:circle(0% at 100% 0);transition:clip-path .7s cubic-bezier(.7,0,.2,1);visibility:hidden}
+.mobile-menu.open{clip-path:circle(150% at 100% 0);visibility:visible}
+.mobile-menu a{font-family:var(--display);font-style:italic;font-size:clamp(2.4rem,11vw,4rem);text-decoration:none;line-height:1.15}
+.mobile-menu .close{position:absolute;top:calc(18px + env(safe-area-inset-top,0px));right:var(--gutter-r)}
+
+/* hero */
+.hero{position:relative;overflow-x:clip;padding-block:clamp(28px,6vw,80px) clamp(48px,7vw,96px)}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(32px,5vw,80px);align-items:center}
+.hero-copy{min-width:0;display:grid;gap:28px}
+.hero h1{font-size:clamp(2.4rem,1rem + 4.6vw,5.6rem);line-height:.98}
+.hero h1 .line{display:block;overflow:hidden;padding-bottom:.08em;white-space:nowrap}
+.hero h1 .line>span{display:inline-block;animation:rise 1.2s cubic-bezier(.2,.8,.2,1) 1.9s both}
+.hero h1 .line:nth-child(2)>span{animation-delay:2.02s}
+.hero h1 .line:nth-child(3)>span{animation-delay:2.14s}
+@keyframes rise{from{transform:translateY(105%)}to{transform:none}}
+.hero-sub{color:var(--mute);font-size:var(--step-1);line-height:1.5;max-width:34ch}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:14px}
+.hero-meta{display:flex;flex-wrap:wrap;gap:10px 28px;font-size:var(--step--1);letter-spacing:.18em;text-transform:uppercase;color:var(--mute);padding-top:20px;border-top:1px solid var(--line)}
+.hero-meta b{color:var(--cream);font-weight:400}
+.reel{position:relative;justify-self:center;width:min(100%,420px)}
+.reel-frame{position:relative;aspect-ratio:9/16;max-width:100%;border-radius:999px 999px 18px 18px;overflow:hidden;background:var(--ink-2);box-shadow:0 40px 120px -40px rgba(237,175,86,.35)}
+.reel-frame video{width:100%;height:100%;object-fit:cover}
+.reel-frame::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 0 1px rgba(237,175,86,.35);pointer-events:none}
+.ring{position:absolute;width:118%;aspect-ratio:1;left:-9%;top:-12%;border:1px solid var(--gold);border-radius:50%;opacity:.55;pointer-events:none;animation:float 9s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(14px) rotate(2deg)}}
+.sprig{position:absolute;right:-14%;bottom:8%;width:46%;pointer-events:none;color:var(--gold)}
+.badge{position:absolute;left:-16%;bottom:12%;width:clamp(110px,12vw,150px);aspect-ratio:1;display:grid;place-items:center;background:var(--ink);border-radius:50%;border:1px solid var(--line)}
+.badge svg{position:absolute;inset:0;width:100%;height:100%;animation:spin 22s linear infinite}
+.badge text{font-family:var(--body);font-size:9.6px;letter-spacing:3.1px;fill:var(--cream);text-transform:uppercase}
+.badge img{width:44%}
+@keyframes spin{to{transform:rotate(360deg)}}
+.reel-ctrl{position:absolute;right:14px;bottom:14px;display:flex;gap:8px}
+.reel-ctrl button{width:38px;height:38px;border-radius:50%;border:1px solid rgba(243,234,220,.4);background:rgba(14,11,8,.55);color:var(--cream);display:grid;place-items:center;cursor:pointer;backdrop-filter:blur(6px)}
+.reel-cap{margin-top:18px;text-align:center;font-size:var(--step--1);letter-spacing:.24em;text-transform:uppercase;color:var(--mute)}
+
+/* marquee */
+.marquee{border-block:1px solid var(--line);overflow:hidden;padding-block:22px;white-space:nowrap}
+.marquee-track{display:inline-flex;gap:48px;animation:marq 38s linear infinite;padding-left:48px}
+.marquee span{font-family:var(--display);font-style:italic;font-size:var(--step-2);display:inline-flex;align-items:center;gap:48px}
+.marquee svg{width:28px;height:28px;color:var(--gold);flex:none}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* sections */
+section{position:relative}
+.sec{padding-block:clamp(72px,11vw,150px)}
+.sec-head{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:end;margin-bottom:clamp(40px,6vw,72px)}
+.sec-head p{color:var(--mute)}
+.sec-head>*{min-width:0}
+
+/* services */
+.svc-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.svc{border-bottom:1px solid var(--line)}
+.svc a{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr) auto;gap:32px;align-items:center;padding-block:clamp(26px,3.4vw,44px);text-decoration:none;position:relative}
+.svc h3{font-size:var(--step-3);transition:transform .6s cubic-bezier(.2,.8,.2,1),color .4s}
+.svc .tag{display:block;font-family:var(--body);font-size:var(--step--1);letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.svc p{color:var(--mute);transition:color .4s}
+.svc .go{width:56px;height:56px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;transition:background .4s,border-color .4s,transform .5s}
+.svc .go svg{width:18px;transition:transform .5s;color:var(--cream)}
+.svc a:hover h3{transform:translateX(18px);color:var(--gold)}
+.svc a:hover p{color:var(--cream)}
+.svc a:hover .go{background:var(--gold);border-color:var(--gold)}
+.svc a:hover .go svg{transform:rotate(-45deg);color:var(--ink)}
+.svc .thumb{display:none}
+.hover-img{position:fixed;left:0;top:0;width:280px;aspect-ratio:3/4;pointer-events:none;z-index:40;border-radius:140px 140px 10px 10px;overflow:hidden;opacity:0;transform:translate(-50%,-50%) scale(.8);transition:opacity .35s,transform .45s cubic-bezier(.2,.8,.2,1)}
+.hover-img.on{opacity:1}
+.hover-img img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;transition:opacity .4s}
+.svc-foot{display:flex;flex-wrap:wrap;gap:16px 28px;align-items:center;justify-content:space-between;margin-top:40px;color:var(--mute)}
+
+/* signature */
+.signature{background:var(--ink-2);border-block:1px solid var(--line);overflow:hidden}
+.sig-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(32px,6vw,90px);align-items:center}
+.sig-grid>*{min-width:0}
+.sig-img{position:relative}
+.sig-img img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:999px 999px 14px 14px}
+.sig-img .mm{position:absolute;inset:auto 0 -1px 0;display:flex;justify-content:space-between;padding:0 12%}
+.quote{font-family:var(--display);font-size:var(--step-3);line-height:1.08}
+.quote .caps{font-style:normal;letter-spacing:.04em}
+.sig-copy{display:grid;gap:26px}
+
+/* lash map */
+.map-wrap{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.65fr);gap:clamp(24px,4vw,56px);align-items:center}
+.map-stage{position:relative;aspect-ratio:16/10;max-width:100%;border:1px solid var(--line);border-radius:14px;background:radial-gradient(120% 90% at 50% 100%,#21190f 0%,var(--ink) 70%);overflow:hidden}
+.map-stage canvas{width:100%;height:100%;display:block}
+.map-stage .hint{position:absolute;left:18px;bottom:14px;font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--mute)}
+.styles{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:28px}
+.styles button{font:inherit;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;padding:.8em 1.3em;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--cream);cursor:pointer;transition:background .35s,color .35s,border-color .35s}
+.styles button[aria-pressed="true"]{background:var(--gold);border-color:var(--gold);color:var(--ink)}
+.style-info h3{font-size:var(--step-2);margin-bottom:12px}
+.style-info p{color:var(--mute)}
+.style-info dl{display:grid;grid-template-columns:auto 1fr;gap:8px 18px;margin:24px 0 0;font-size:var(--step--1);letter-spacing:.14em;text-transform:uppercase}
+.style-info dt{color:var(--mute)}
+.style-info dd{margin:0;color:var(--cream);font-variant-numeric:tabular-nums}
+
+/* gallery (pinned horizontal) */
+.gallery{position:relative}
+.g-pin{position:sticky;top:0;height:100vh;height:100svh;display:flex;flex-direction:column;justify-content:center;overflow:hidden;gap:36px}
+.g-track{display:flex;gap:clamp(16px,2.4vw,32px);padding-left:var(--gutter);padding-right:var(--gutter-r);will-change:transform}
+.g-item{flex:none;width:clamp(240px,26vw,380px);position:relative;cursor:zoom-in;margin:0}
+.g-item:nth-child(even){margin-top:8vh}
+.g-item .ph{overflow:hidden;border-radius:12px;aspect-ratio:4/5;background:var(--ink-2)}
+.g-item.arch .ph{border-radius:999px 999px 12px 12px}
+.g-item img{width:100%;height:100%;object-fit:cover;transform:scale(1.12);transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}
+.g-item:hover img{transform:scale(1.02)}
+.g-item figcaption{display:flex;justify-content:space-between;gap:12px;margin-top:12px;font-size:var(--step--1);letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
+.g-item figcaption b{font-family:var(--display);font-style:italic;text-transform:none;letter-spacing:0;font-size:1.3rem;color:var(--cream);font-weight:400}
+.g-intro{flex:none;width:clamp(260px,30vw,420px);display:flex;flex-direction:column;justify-content:center;gap:20px}
+.g-intro p{color:var(--mute)}
+
+/* studio */
+.studio-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:clamp(16px,2vw,28px);align-items:start}
+.studio-grid>*{min-width:0}
+.st-a{grid-column:1 / span 5}
+.st-b{grid-column:7 / span 6;display:grid;gap:28px;padding-top:8vw}
+.st-a img,.st-c img{width:100%;object-fit:cover;border-radius:12px}
+.st-a img{aspect-ratio:3/4}
+.st-c{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.st-c img{aspect-ratio:1}
+.facts{list-style:none;margin:0;padding:0;display:grid;gap:0;border-top:1px solid var(--line)}
+.facts li{display:flex;justify-content:space-between;gap:16px;padding-block:14px;border-bottom:1px solid var(--line);font-size:var(--step--1);letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+.facts li b{color:var(--cream);font-weight:400;text-align:right}
+.testimonial{margin-top:clamp(72px,10vw,130px);text-align:center;display:grid;justify-items:center;gap:22px}
+.testimonial blockquote{margin:0;font-family:var(--display);font-style:italic;font-size:var(--step-4);line-height:1;max-width:14ch}
+.testimonial blockquote .gold{color:var(--gold)}
+.testimonial cite{font-style:normal;font-size:var(--step--1);letter-spacing:.3em;text-transform:uppercase;color:var(--mute)}
+.stars{display:flex;gap:6px;color:var(--gold)}
+
+/* care */
+.care{background:var(--ink-2);border-block:1px solid var(--line)}
+.care-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(32px,6vw,90px);align-items:center}
+.care-img{position:relative}
+.care-img img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:50%}
+.care-img .spool{position:absolute;width:42%;right:-6%;bottom:-6%;border-radius:12px;border:6px solid var(--ink-2);aspect-ratio:3/4;object-fit:cover}
+.care-list{list-style:none;margin:32px 0 0;padding:0;display:grid;gap:0}
+.care-list li{display:grid;grid-template-columns:110px 1fr;gap:24px;padding-block:22px;border-top:1px solid var(--line)}
+.care-list li:last-child{border-bottom:1px solid var(--line)}
+.care-list .when{font-family:var(--display);font-style:italic;font-size:1.5rem;color:var(--gold);line-height:1.1}
+.care-list p{color:var(--mute)}
+.care-list strong{color:var(--cream);font-weight:400;display:block;margin-bottom:4px}
+
+/* course */
+.course{overflow:hidden}
+.course-card{position:relative;border:1px solid var(--line);border-radius:18px;padding:clamp(32px,6vw,80px);display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:40px;align-items:center;overflow:hidden}
+.course-card::before{content:"";position:absolute;width:520px;aspect-ratio:1;border-radius:50%;border:1px solid var(--gold);right:-160px;top:-200px;opacity:.35}
+.course-card>*{position:relative;min-width:0}
+.course-card p{color:var(--mute);margin-top:18px}
+.course-card .btn{justify-self:end}
+
+/* visit */
+.visit-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(32px,6vw,80px)}
+.visit h2{font-size:var(--step-4)}
+.contact-rows{display:grid;margin-top:40px;border-top:1px solid var(--line)}
+.c-row{display:grid;grid-template-columns:120px minmax(0,1fr) auto;gap:16px;align-items:center;padding-block:20px;border-bottom:1px solid var(--line)}
+.c-row .k{font-size:var(--step--1);letter-spacing:.24em;text-transform:uppercase;color:var(--mute)}
+.c-row .v{font-family:var(--display);font-size:var(--step-1);overflow-wrap:anywhere;text-decoration:none;user-select:all}
+.c-row .v:hover{color:var(--gold)}
+.copy{font:inherit;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);background:none;border:1px solid var(--line);border-radius:999px;padding:.6em 1em;cursor:pointer}
+.copy:hover{color:var(--ink);background:var(--gold);border-color:var(--gold)}
+.map-card{position:relative;border-radius:999px 999px 16px 16px;overflow:hidden;aspect-ratio:4/5;max-width:100%;text-decoration:none;display:block;background:var(--ink-2)}
+.map-card img{width:100%;height:100%;object-fit:cover;opacity:.55;transition:opacity .6s,transform 1.2s}
+.map-card:hover img{opacity:.8;transform:scale(1.04)}
+.map-card .pin{position:absolute;inset:auto 0 0 0;padding:28px;display:grid;gap:6px;background:linear-gradient(transparent,rgba(14,11,8,.95))}
+.map-card .pin b{font-family:var(--display);font-style:italic;font-weight:400;font-size:var(--step-2)}
+.map-card .pin span{font-size:var(--step--1);letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
+
+/* footer */
+footer{border-top:1px solid var(--line);padding-block:56px calc(36px + env(safe-area-inset-bottom,0px))}
+.foot-big{font-family:var(--display);font-style:italic;font-size:clamp(3rem,15vw,15rem);line-height:.9;text-align:center;color:transparent;-webkit-text-stroke:1px var(--gold);letter-spacing:.02em;user-select:none;margin-bottom:40px;white-space:nowrap}
+.foot-row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;font-size:var(--step--1);letter-spacing:.18em;text-transform:uppercase;color:var(--mute)}
+.foot-row a{text-decoration:none}
+.foot-row a:hover{color:var(--gold)}
+.foot-row nav{display:flex;flex-wrap:wrap;gap:24px}
+
+/* lightbox */
+.lightbox{position:fixed;inset:0;z-index:90;background:rgba(10,8,6,.94);display:grid;place-items:center;padding:max(24px,env(safe-area-inset-top,0px)) var(--gutter-r) max(24px,env(safe-area-inset-bottom,0px)) var(--gutter);opacity:0;visibility:hidden;transition:opacity .4s,visibility .4s}
+.lightbox.open{opacity:1;visibility:visible}
+.lightbox img{max-height:84vh;width:auto;border-radius:10px;transform:scale(.94);transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.lightbox.open img{transform:none}
+.lightbox .close{position:absolute;top:calc(18px + env(safe-area-inset-top,0px));right:var(--gutter-r)}
+.lightbox .nav-l,.lightbox .nav-r{position:absolute;top:50%;transform:translateY(-50%)}
+.lightbox .nav-l{left:var(--gutter)}.lightbox .nav-r{right:var(--gutter-r)}
+.round{width:48px;height:48px;border-radius:50%;border:1px solid var(--line);background:var(--ink);color:var(--cream);display:grid;place-items:center;cursor:pointer;font:inherit;font-size:1.2rem}
+.round:hover{border-color:var(--gold);color:var(--gold)}
+
+/* cursor */
+.cursor,.cursor-dot{position:fixed;left:0;top:0;pointer-events:none;z-index:95;border-radius:50%;transform:translate(-50%,-50%)}
+.cursor{width:38px;height:38px;border:1px solid var(--gold);display:grid;place-items:center;transition:width .35s,height .35s,background .35s,border-color .35s;mix-blend-mode:normal}
+.cursor span{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);opacity:0;transition:opacity .2s}
+.cursor.big{width:88px;height:88px;background:var(--gold)}
+.cursor.big span{opacity:1}
+.cursor-dot{width:5px;height:5px;background:var(--gold)}
+.cursor,.cursor-dot{opacity:0;transition-property:width,height,background,border-color,opacity}
+body.cursor-live .cursor,body.cursor-live .cursor-dot{opacity:1}
+@media (pointer:fine){body.has-cursor,body.has-cursor a,body.has-cursor button{cursor:none}}
+@media (pointer:coarse){.cursor,.cursor-dot{display:none}}
+
+/* reveal */
+.reveal{transition:opacity 1.1s cubic-bezier(.2,.8,.2,1),transform 1.1s cubic-bezier(.2,.8,.2,1)}
+.reveal.pre{opacity:0;transform:translateY(40px)}
+.clip{transition:clip-path 1.4s cubic-bezier(.7,0,.2,1)}
+.clip.pre{clip-path:inset(100% 0 0 0)}
+
+/* responsive */
+@media (max-width:980px){
+  .nav ul{display:none}
+  .nav .book-top{display:none}
+  .menu-btn{display:inline-flex}
+  .hero .wrap{grid-template-columns:1fr}
+  .reel{width:min(78%,360px);margin-top:12px}
+  .sec-head,.sig-grid,.map-wrap,.care-grid,.course-card,.visit-grid{grid-template-columns:1fr}
+  .course-card .btn{justify-self:start}
+  .st-a{grid-column:1 / -1}
+  .st-b{grid-column:1 / -1;padding-top:0}
+  .svc a{grid-template-columns:minmax(0,1fr) auto;gap:16px 20px}
+  .svc a p{grid-column:1 / -1;grid-row:3}
+  .svc .thumb{display:block;grid-column:1 / -1;grid-row:2;width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:10px}
+  .hover-img{display:none}
+}
+@media (max-width:800px){
+  .gallery{height:auto!important}
+  .g-pin{position:relative;height:auto;padding-block:72px}
+  .g-track{overflow-x:auto;scroll-snap-type:x mandatory;transform:none!important;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:8px}
+  .g-track::-webkit-scrollbar{display:none}
+  .g-item{scroll-snap-align:center;width:72vw}
+  .g-item:nth-child(even){margin-top:0}
+  .g-intro{width:78vw}
+  .badge{left:-10%}
+  .care-list li{grid-template-columns:1fr;gap:6px}
+  .care-img .spool{right:0;bottom:-8%}
+  .c-row{grid-template-columns:1fr auto}
+  .c-row .k{grid-column:1 / -1}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001s!important;animation-delay:0s!important;transition-duration:.001s!important}
+  .marquee-track,.badge svg,.ring,.grain{animation:none!important}
+  .reveal.pre,.clip.pre{opacity:1;transform:none;clip-path:none}
+  .loader{display:none}
+}
+</style>
+<!--HEAD-END-->
+</head>
+<body>
+<!--BODY-START-->
+<div class="loader" aria-hidden="true">
+  <svg viewBox="0 0 220 220"><circle cx="110" cy="110" r="100"/><text x="110" y="126" text-anchor="middle">OMNI</text></svg>
+</div>
+<div class="grain" aria-hidden="true"></div>
+<div class="progress" aria-hidden="true"></div>
+<div class="cursor" aria-hidden="true"><span>View</span></div><div class="cursor-dot" aria-hidden="true"></div>
+
+<header class="nav" id="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Omni Beauty Reno home"><img src="assets/img/logo-gold.png" alt="" width="46" height="46"><span>Beauty · Reno</span></a>
+    <nav aria-label="Primary"><ul>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#lash-map">Lash Map</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#studio">Studio</a></li>
+      <li><a href="#visit">Visit</a></li>
+    </ul></nav>
+    <a class="btn book-top magnetic" href="https://www.vagaro.com/us02/omni" target="_blank" rel="noopener" data-cursor="Book">Book now <span class="arr">→</span></a>
+    <button class="menu-btn" id="menuOpen" aria-expanded="false" aria-controls="mobileMenu">Menu</button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <button class="round close" id="menuClose" aria-label="Close menu">✕</button>
+  <a href="#services">Services</a>
+  <a href="#lash-map">Lash Map</a>
+  <a href="#gallery">Gallery</a>
+  <a href="#studio">Studio</a>
+  <a href="#visit">Visit</a>
+  <a class="btn" style="margin-top:24px;align-self:flex-start;font-style:normal;font-family:var(--body);font-size:.8rem" href="https://www.vagaro.com/us02/omni" target="_blank" rel="noopener">Book an appointment →</a>
+</div>
+
+<main>
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-copy">
+      <div class="eyebrow">Lash · Wax · Body Sculpting — Reno, NV</div>
+      <h1 aria-label="Enhancing your beauty and your confidence.">
+        <span class="line"><span>Enhancing</span></span>
+        <span class="line"><span>your <em>beauty</em> &amp;</span></span>
+        <span class="line"><span>your <em>confidence.</em></span></span>
+      </h1>
+      <p class="hero-sub">Hand-mapped lash extensions, lifts, brows, waxing and body sculpting in a private studio off Ridgeview Court.</p>
+      <div class="hero-ctas">
+        <a class="btn magnetic" href="https://www.vagaro.com/us02/omni" target="_blank" rel="noopener" data-cursor="Book">Book an appointment <span class="arr">→</span></a>
+        <a class="btn ghost magnetic" href="#services">See services</a>
+      </div>
+      <div class="hero-meta">
+        <span><b>Suite G</b> · 6165 Ridgeview Ct.</span>
+        <span><b>775.384.1023</b></span>
+        <span>#RenoLashMagic</span>
+      </div>
+    </div>
+    <div class="reel">
+      <div class="ring" aria-hidden="true"></div>
+      <div class="reel-frame">
+        <video id="reel" src="assets/video/omni-reel.mp4" poster="assets/video/omni-reel-poster.jpg" autoplay muted loop playsinline preload="auto" aria-label="A day in the Omni studio: lash sets, body sculpting and happy clients"></video>
+        <div class="reel-ctrl"><button id="reelToggle" aria-label="Pause video"><svg width="12" height="14" viewBox="0 0 12 14" fill="currentColor"><rect width="4" height="14"/><rect x="8" width="4" height="14"/></svg></button></div>
+      </div>
+      <svg class="sprig" viewBox="0 0 200 160" fill="none" stroke="currentColor" stroke-width="1.1" aria-hidden="true"><path d="M4 150 C60 130 110 95 190 18"/><path d="M60 128c-6-22 4-40 22-48-2 22-10 38-22 48z"/><path d="M60 128c18 6 38 2 52-12-20-4-38 0-52 12z"/><path d="M100 98c-4-22 8-38 26-44-4 22-12 36-26 44z"/><path d="M100 98c18 4 36-2 48-16-20-2-36 4-48 16z"/><path d="M140 62c-2-18 8-32 24-38-2 18-10 30-24 38z"/><path d="M140 62c16 2 30-4 40-16-16-2-30 4-40 16z"/></svg>
+      <div class="badge" aria-hidden="true">
+        <svg viewBox="0 0 150 150"><defs><path id="circ" d="M75,75 m-58,0 a58,58 0 1,1 116,0 a58,58 0 1,1 -116,0"/></defs><text><textPath href="#circ">Omni Beauty Reno · Lash Magic · Est. Reno ·</textPath></text></svg>
+        <img src="assets/img/logo-gold.png" alt="">
+      </div>
+      <div class="reel-cap">A day at Omni · on loop</div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Lash Extensions <svg viewBox="0 0 28 28" fill="none" stroke="currentColor"><path d="M14 2c3 6 3 18 0 24M14 2c-3 6-3 18 0 24M2 14h24"/></svg> Lash Lifts <svg viewBox="0 0 28 28" fill="none" stroke="currentColor"><path d="M14 2c3 6 3 18 0 24M14 2c-3 6-3 18 0 24M2 14h24"/></svg> Brows &amp; Waxing <svg viewBox="0 0 28 28" fill="none" stroke="currentColor"><path d="M14 2c3 6 3 18 0 24M14 2c-3 6-3 18 0 24M2 14h24"/></svg> Body Sculpting <svg viewBox="0 0 28 28" fill="none" stroke="currentColor"><path d="M14 2c3 6 3 18 0 24M14 2c-3 6-3 18 0 24M2 14h24"/></svg> #AllThingsBeauty <svg viewBox="0 0 28 28" fill="none" stroke="currentColor"><path d="M14 2c3 6 3 18 0 24M14 2c-3 6-3 18 0 24M2 14h24"/></svg></span>
+    <span>Lash Extensions <svg viewBox="0 0 28 28" fill="none" stroke="currentColor"><path d="M14 2c3 6 3 18 0 24M14 2c-3 6-3 18 0 24M2 14h24"/></svg> Lash Lifts <svg viewBox="0 0 28 28" fill="none" stroke="currentColor"><path d="M14 2c3 6 3 18 0 24M14 2c-3 6-3 18 0 24M2 14h24"/></svg> Brows &amp; Waxing <svg viewBox="0 0 28 28" fill="none" stroke="currentColor"><path d="M14 2c3 6 3 18 0 24M14 2c-3 6-3 18 0 24M2 14h24"/></svg> Body Sculpting <svg viewBox="0 0 28 28" fill="none" stroke="currentColor"><path d="M14 2c3 6 3 18 0 24M14 2c-3 6-3 18 0 24M2 14h24"/></svg> #AllThingsBeauty <svg viewBox="0 0 28 28" fill="none" stroke="currentColor"><path d="M14 2c3 6 3 18 0 24M14 2c-3 6-3 18 0 24M2 14h24"/></svg></span>
+  </div>
+</div>
+
+<section class="sec" id="services">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="reveal"><div class="eyebrow" style="margin-bottom:18px">Services</div><h2>All things <em>beauty</em>, one quiet room.</h2></div>
+      <p class="reveal">Every appointment is one-on-one. Your artist looks at your natural lashes, eye shape and skin before anything touches them, so the result fits your face.</p>
+    </div>
+    <ul class="svc-list">
+      <li class="svc reveal"><a href="https://www.vagaro.com/omni/services" target="_blank" rel="noopener" data-img="assets/img/wispy-set.webp" data-cursor="Book">
+        <div><span class="tag">Most popular</span><h3>Lash Extensions</h3></div>
+        <img class="thumb" src="assets/img/wispy-set.webp" alt="Wispy volume lash extensions" loading="lazy">
+        <p>Classic, hybrid, volume and wispy full sets, plus fills. Each set is mapped length by length to your eye.</p>
+        <span class="go"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 9h14M10 3l6 6-6 6"/></svg></span></a></li>
+      <li class="svc reveal"><a href="https://www.vagaro.com/omni/services" target="_blank" rel="noopener" data-img="assets/img/lash-lift.webp" data-cursor="Book">
+        <div><span class="tag">Your own lashes</span><h3>Lash Lift &amp; Tint</h3></div>
+        <img class="thumb" src="assets/img/lash-lift.webp" alt="Lash lift result on natural lashes" loading="lazy">
+        <p>A lifted, darker curl on your natural lashes. No extensions to maintain.</p>
+        <span class="go"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 9h14M10 3l6 6-6 6"/></svg></span></a></li>
+      <li class="svc reveal"><a href="https://www.vagaro.com/omni/services" target="_blank" rel="noopener" data-img="assets/img/lift-brow.webp" data-cursor="Book">
+        <div><span class="tag">Shape &amp; smooth</span><h3>Brows &amp; Waxing</h3></div>
+        <img class="thumb" src="assets/img/lift-brow.webp" alt="Groomed brows after treatment" loading="lazy">
+        <p>Eyebrow treatments and waxing for clean shape and smooth skin, done gently.</p>
+        <span class="go"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 9h14M10 3l6 6-6 6"/></svg></span></a></li>
+      <li class="svc reveal"><a href="https://www.vagaro.com/omni/services" target="_blank" rel="noopener" data-img="assets/img/studio-room.webp" data-cursor="Book">
+        <div><span class="tag">Contour</span><h3>Body Sculpting</h3></div>
+        <img class="thumb" src="assets/img/studio-room.webp" alt="Omni treatment room" loading="lazy">
+        <p>Non-invasive body contouring sessions in the same private suite. Watch one in the reel above.</p>
+        <span class="go"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 9h14M10 3l6 6-6 6"/></svg></span></a></li>
+    </ul>
+    <div class="svc-foot reveal">
+      <span>Pricing, durations and live availability are on our booking page.</span>
+      <a class="btn ghost magnetic" href="https://www.vagaro.com/omni/services" target="_blank" rel="noopener">View price list <span class="arr">→</span></a>
+    </div>
+  </div>
+  <div class="hover-img" aria-hidden="true"><img src="assets/img/wispy-set.webp" alt=""></div>
+</section>
+
+<section class="signature sec">
+  <div class="wrap sig-grid">
+    <div class="sig-img clip"><img src="assets/img/lash-closeup.webp" alt="Close-up of a full volume lash set" loading="lazy"></div>
+    <div class="sig-copy">
+      <div class="eyebrow reveal">The Volume Set</div>
+      <p class="quote reveal">Be <span class="caps">BOLD</span>. Be <span class="caps">DARING</span>. Embrace the drama of <em>full</em> lashes.</p>
+      <p class="reveal" style="color:var(--mute)">Clusters of single lashes are hand made and formulated based on your natural lashes and eye shape. Soft, dark and full, without weighing your own lashes down.</p>
+      <div class="reveal"><a class="btn magnetic" href="https://www.vagaro.com/us02/omni" target="_blank" rel="noopener" data-cursor="Book">Book a volume set <span class="arr">→</span></a></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="lash-map">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="reveal"><div class="eyebrow" style="margin-bottom:18px">The Lash Map</div><h2>Find your <em>set</em>.</h2></div>
+      <p class="reveal">Before every set, your artist draws a map on the eye pad: a length in millimeters for each zone of the lid. Pick a style to see how its map changes the look.</p>
+    </div>
+    <div class="map-wrap">
+      <div class="map-stage reveal"><canvas id="lashCanvas" aria-label="Animated drawing of a lash set following the selected map" role="img"></canvas><span class="hint">Move across the lashes</span></div>
+      <div class="reveal">
+        <div class="styles" role="group" aria-label="Lash style">
+          <button aria-pressed="true" data-style="classic">Classic</button>
+          <button aria-pressed="false" data-style="hybrid">Hybrid</button>
+          <button aria-pressed="false" data-style="volume">Volume</button>
+          <button aria-pressed="false" data-style="wispy">Wispy</button>
+        </div>
+        <div class="style-info" aria-live="polite">
+          <h3 id="sName">Classic</h3>
+          <p id="sDesc">One extension on each natural lash. Clean, defined and closest to mascara.</p>
+          <dl>
+            <dt>Map</dt><dd id="sMap">8 · 9 · 10 · 11 · 11</dd>
+            <dt>Feel</dt><dd id="sFeel">Natural</dd>
+            <dt>Fills</dt><dd>Every 2–3 weeks</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery" id="gallery">
+  <div class="g-pin">
+    <div class="g-track">
+      <div class="g-intro">
+        <div class="eyebrow">Gallery</div>
+        <h2>Fresh from the <em>chair</em>.</h2>
+        <p>Real clients, real sets. Tap any photo to see it larger, and follow <a href="https://www.instagram.com/omni.reno" target="_blank" rel="noopener" style="color:var(--gold)">@omni.reno</a> for new work.</p>
+      </div>
+      <figure class="g-item arch"><div class="ph"><img src="assets/img/sun.webp" alt="Wispy lash set from four angles" loading="lazy"></div><figcaption><b>Sun</b><span>Wispy set</span></figcaption></figure>
+      <figure class="g-item"><div class="ph"><img src="assets/img/vibe.webp" alt="Before and after lash extensions" loading="lazy"></div><figcaption><b>Vibe</b><span>Before / after</span></figcaption></figure>
+      <figure class="g-item"><div class="ph"><img src="assets/img/lash-mapping.webp" alt="Lash map drawn on an eye pad during application" loading="lazy"></div><figcaption><b>The map</b><span>Mid-set</span></figcaption></figure>
+      <figure class="g-item arch"><div class="ph"><img src="assets/img/natural-set.webp" alt="Soft natural lash extensions" loading="lazy"></div><figcaption><b>Soft</b><span>Natural set</span></figcaption></figure>
+      <figure class="g-item"><div class="ph"><img src="assets/img/moon.webp" alt="Lash bath with cleansing foam" loading="lazy"></div><figcaption><b>Moon</b><span>Lash bath</span></figcaption></figure>
+      <figure class="g-item"><div class="ph"><img src="assets/img/lash-lift.webp" alt="Lash lift on natural lashes" loading="lazy"></div><figcaption><b>Lifted</b><span>Lash lift</span></figcaption></figure>
+      <figure class="g-item arch"><div class="ph"><img src="assets/img/wispy-set.webp" alt="Dramatic wispy lash set" loading="lazy"></div><figcaption><b>Drama</b><span>Volume</span></figcaption></figure>
+      <figure class="g-item"><div class="ph"><img src="assets/img/rising.webp" alt="Three lash spoolies" loading="lazy"></div><figcaption><b>Rising</b><span>Tools</span></figcaption></figure>
+      <figure class="g-item"><div class="ph"><img src="assets/img/lift-brow.webp" alt="Lash lift and brow treatment" loading="lazy"></div><figcaption><b>Brows</b><span>Lift &amp; shape</span></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="studio">
+  <div class="wrap">
+    <div class="studio-grid">
+      <div class="st-a clip"><img src="assets/img/studio-room.webp" alt="Omni treatment room with heated bed, lash lamp and products" loading="lazy"></div>
+      <div class="st-b">
+        <div class="eyebrow reveal">The Studio</div>
+        <h2 class="reveal">A private suite, made for <em>slowing down</em>.</h2>
+        <p class="reveal" style="color:var(--mute)">Soft blanket, warm light and a lamp built for lash work. You lie back, close your eyes and most clients fall asleep. There are snacks and a cold drink waiting when you sit up.</p>
+        <ul class="facts reveal">
+          <li>Where <b>Suite G · 6165 Ridgeview Ct.</b></li>
+          <li>Visits <b>By appointment</b></li>
+          <li>Price range <b>$$</b></li>
+          <li>Artist <b>Stephanie</b></li>
+        </ul>
+        <div class="st-c reveal"><img src="assets/img/studio-lounge.webp" alt="Studio corner with mirror, pampas and snack basket" loading="lazy"><img src="assets/img/lash-mapping.webp" alt="Lash mapping in progress" loading="lazy"></div>
+      </div>
+    </div>
+    <div class="testimonial reveal">
+      <div class="stars" aria-label="Five stars"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.8 5.5 21l2-7.5L2 9h7z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.8 5.5 21l2-7.5L2 9h7z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.8 5.5 21l2-7.5L2 9h7z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.8 5.5 21l2-7.5L2 9h7z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.8 5.5 21l2-7.5L2 9h7z"/></svg></div>
+      <blockquote>“Stephanie is a lash <span class="gold">magician!</span>”</blockquote>
+      <cite>Megan J. · Omni client</cite>
+    </div>
+  </div>
+</section>
+
+<section class="care sec">
+  <div class="wrap care-grid">
+    <div class="care-img clip"><img src="assets/img/moon.webp" alt="Lash bath foam on extensions" loading="lazy"><img class="spool" src="assets/img/rising.webp" alt="Lash spoolies" loading="lazy"></div>
+    <div>
+      <div class="eyebrow reveal" style="margin-bottom:18px">Lash care</div>
+      <h2 class="reveal">Keep them <em>full</em> between visits.</h2>
+      <ul class="care-list">
+        <li class="reveal"><span class="when">First 24 hrs</span><p><strong>Keep them dry</strong>Skip steam, saunas and long hot showers while the adhesive cures.</p></li>
+        <li class="reveal"><span class="when">Daily</span><p><strong>Brush with a spoolie</strong>A gentle brush-through every morning keeps the fan shape crisp.</p></li>
+        <li class="reveal"><span class="when">A few times a week</span><p><strong>Give them a lash bath</strong>Oil-free foam cleanser, rinse and pat dry. Clean lashes last longer.</p></li>
+        <li class="reveal"><span class="when">2–3 weeks</span><p><strong>Book your fill</strong>Natural lashes shed every day. A fill brings the set back to full.</p></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="course sec">
+  <div class="wrap">
+    <div class="course-card reveal">
+      <div>
+        <div class="eyebrow">Professional course</div>
+        <h2 style="margin-top:16px">Learn to <em>lash</em>.</h2>
+        <p>Omni offers a professional lash course for new artists. Email us to ask about the next class, what it covers and what you need to start.</p>
+      </div>
+      <a class="btn magnetic" href="mailto:Omni.reno@gmail.com?subject=Professional%20lash%20course" data-cursor="Email">Ask about the course <span class="arr">→</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="sec visit" id="visit">
+  <div class="wrap visit-grid">
+    <div>
+      <div class="eyebrow reveal" style="margin-bottom:18px">Visit</div>
+      <h2 class="reveal">Come see <em>us</em>.</h2>
+      <div class="contact-rows">
+        <div class="c-row reveal"><span class="k">Book</span><a class="v" href="https://www.vagaro.com/us02/omni" target="_blank" rel="noopener">vagaro.com/omni</a><a class="copy" href="https://www.vagaro.com/us02/omni" target="_blank" rel="noopener" style="text-decoration:none">Open</a></div>
+        <div class="c-row reveal"><span class="k">Call</span><a class="v" href="tel:+17753841023">775.384.1023</a><button class="copy" data-copy="775-384-1023">Copy</button></div>
+        <div class="c-row reveal"><span class="k">Email</span><a class="v" href="mailto:Omni.reno@gmail.com">Omni.reno@gmail.com</a><button class="copy" data-copy="Omni.reno@gmail.com">Copy</button></div>
+        <div class="c-row reveal"><span class="k">Studio</span><span class="v">6165 Ridgeview Ct., Suite G<br>Reno, NV 89519</span><button class="copy" data-copy="6165 Ridgeview Ct., Suite G, Reno, NV 89519">Copy</button></div>
+        <div class="c-row reveal"><span class="k">Social</span><a class="v" href="https://www.instagram.com/omni.reno" target="_blank" rel="noopener">@omni.reno</a><a class="copy" href="https://www.facebook.com/beautifulbeyondlashes" target="_blank" rel="noopener" style="text-decoration:none">Facebook</a></div>
+      </div>
+    </div>
+    <a class="map-card clip" href="https://www.google.com/maps/search/?api=1&query=6165+Ridgeview+Ct+Suite+G+Reno+NV+89519" target="_blank" rel="noopener" data-cursor="Map">
+      <img src="assets/img/studio-lounge.webp" alt="" loading="lazy">
+      <span class="pin"><span>Get directions</span><b>Ridgeview Ct., Reno</b></span>
+    </a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-big" aria-hidden="true">Omni</div>
+    <div class="foot-row">
+      <span>© <span id="yr">2026</span> Omni Beauty Reno</span>
+      <nav aria-label="Footer"><a href="#services">Services</a><a href="#gallery">Gallery</a><a href="https://www.instagram.com/omni.reno" target="_blank" rel="noopener">Instagram</a><a href="https://www.vagaro.com/us02/omni" target="_blank" rel="noopener">Book</a></nav>
+      <a href="#top">Back to top ↑</a>
+    </div>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
+  <button class="round close" id="lbClose" aria-label="Close">✕</button>
+  <button class="round nav-l" id="lbPrev" aria-label="Previous photo">←</button>
+  <img id="lbImg" src="assets/img/sun.webp" alt="">
+  <button class="round nav-r" id="lbNext" aria-label="Next photo">→</button>
+</div>
+
+<script>
+(()=>{
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const fine = matchMedia('(pointer: fine)').matches;
+const $ = (s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+// hide loader after it plays (CSS also auto-hides)
+const loader=$('.loader');
+setTimeout(()=>loader && loader.remove(), reduce?0:2700);
+
+// nav state + progress
+const nav=$('.nav'), prog=$('.progress');
+const onScroll=()=>{
+  const y=scrollY; nav.classList.toggle('scrolled', y>20);
+  const h=document.documentElement.scrollHeight-innerHeight;
+  prog.style.transform=`scaleX(${h>0?y/h:0})`;
+};
+addEventListener('scroll',onScroll,{passive:true}); onScroll();
+
+// mobile menu
+const mm=$('#mobileMenu'), mo=$('#menuOpen');
+const setMenu=o=>{mm.classList.toggle('open',o);mm.setAttribute('aria-hidden',!o);mo.setAttribute('aria-expanded',o);document.body.style.overflow=o?'hidden':''};
+mo.addEventListener('click',()=>setMenu(true)); $('#menuClose').addEventListener('click',()=>setMenu(false));
+$$('#mobileMenu a').forEach(a=>a.addEventListener('click',()=>setMenu(false)));
+
+// reveal: only hide things that start below the fold, so the first frame is complete
+if(!reduce && 'IntersectionObserver' in window){
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.remove('pre');io.unobserve(e.target)}}),{rootMargin:'0px 0px -8% 0px'});
+  $$('.reveal,.clip').forEach((el,i)=>{ if(el.getBoundingClientRect().top>innerHeight*0.95){el.classList.add('pre');io.observe(el);} });
+}
+
+// video toggle
+const v=$('#reel'), vt=$('#reelToggle');
+const playIcon='<svg width="12" height="14" viewBox="0 0 12 14" fill="currentColor"><path d="M0 0l12 7-12 7z"/></svg>', pauseIcon=vt.innerHTML;
+vt.addEventListener('click',()=>{ if(v.paused){v.play();vt.innerHTML=pauseIcon;vt.setAttribute('aria-label','Pause video')} else {v.pause();vt.innerHTML=playIcon;vt.setAttribute('aria-label','Play video')} });
+if(reduce){v.pause();vt.innerHTML=playIcon;vt.setAttribute('aria-label','Play video')}
+v.play && v.play().catch(()=>{});
+
+// custom cursor + magnetic buttons
+if(fine && !reduce){
+  document.body.classList.add('has-cursor');
+  const c=$('.cursor'), d=$('.cursor-dot'), lbl=c.querySelector('span');
+  let mx=innerWidth/2,my=innerHeight/2,cx=mx,cy=my;
+  addEventListener('pointermove',e=>{document.body.classList.add('cursor-live');mx=e.clientX;my=e.clientY;d.style.transform=`translate(${mx}px,${my}px) translate(-50%,-50%)`});
+  (function loop(){cx+=(mx-cx)*.18;cy+=(my-cy)*.18;c.style.transform=`translate(${cx}px,${cy}px) translate(-50%,-50%)`;requestAnimationFrame(loop)})();
+  $$('[data-cursor], .g-item').forEach(el=>{
+    el.addEventListener('pointerenter',()=>{lbl.textContent=el.dataset.cursor||'View';c.classList.add('big')});
+    el.addEventListener('pointerleave',()=>c.classList.remove('big'));
+  });
+  $$('.magnetic').forEach(b=>{
+    b.addEventListener('pointermove',e=>{const r=b.getBoundingClientRect();b.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.25}px,${(e.clientY-r.top-r.height/2)*.35}px)`});
+    b.addEventListener('pointerleave',()=>{b.style.transition='transform .6s cubic-bezier(.2,.8,.2,1), color .45s';b.style.transform='';setTimeout(()=>b.style.transition='',600)});
+  });
+} else { $('.cursor').remove(); $('.cursor-dot').remove(); }
+
+// service hover image follows the cursor
+const hi=$('.hover-img'), hImg=hi.querySelector('img');
+if(fine){
+  let hx=0,hy=0,tx=0,ty=0,on=false;
+  $$('.svc a').forEach(a=>{
+    a.addEventListener('pointerenter',()=>{hImg.src=a.dataset.img;hi.classList.add('on');on=true});
+    a.addEventListener('pointerleave',()=>{hi.classList.remove('on');on=false});
+  });
+  addEventListener('pointermove',e=>{tx=e.clientX+170;ty=e.clientY});
+  (function f(){hx+=(tx-hx)*.12;hy+=(ty-hy)*.12;const rot=(tx-hx)*.04;hi.style.transform=`translate(${hx}px,${hy}px) translate(-50%,-50%) rotate(${rot}deg) scale(${on?1:.8})`;requestAnimationFrame(f)})();
+}
+
+// pinned horizontal gallery
+const gal=$('.gallery'), track=$('.g-track');
+function sizeGallery(){
+  if(innerWidth<=800){gal.style.height='';track.style.transform='';return}
+  const dist=track.scrollWidth-innerWidth;
+  gal.style.height=(innerHeight+dist)+'px';
+  gal.dataset.dist=dist;
+}
+function moveGallery(){
+  if(innerWidth<=800) return;
+  const r=gal.getBoundingClientRect(), dist=+gal.dataset.dist||0;
+  const p=Math.min(1,Math.max(0,-r.top/(r.height-innerHeight||1)));
+  track.style.transform=`translate3d(${-p*dist}px,0,0)`;
+  $$('.g-item img',track).forEach((im,i)=>{const ir=im.getBoundingClientRect();const off=(ir.left+ir.width/2-innerWidth/2)/innerWidth;im.style.objectPosition=`${50+off*18}% 50%`});
+}
+addEventListener('resize',()=>{sizeGallery();moveGallery()});
+addEventListener('scroll',moveGallery,{passive:true});
+addEventListener('load',()=>{sizeGallery();moveGallery()});
+sizeGallery();
+
+// lightbox
+const items=$$('.g-item img'), lb=$('#lightbox'), lbImg=$('#lbImg'); let idx=0;
+const show=i=>{idx=(i+items.length)%items.length;lbImg.src=items[idx].src;lbImg.alt=items[idx].alt};
+items.forEach((im,i)=>im.closest('.g-item').addEventListener('click',()=>{show(i);lb.classList.add('open');$('#lbClose').focus()}));
+$('#lbClose').addEventListener('click',()=>lb.classList.remove('open'));
+$('#lbPrev').addEventListener('click',()=>show(idx-1)); $('#lbNext').addEventListener('click',()=>show(idx+1));
+lb.addEventListener('click',e=>{if(e.target===lb)lb.classList.remove('open')});
+addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;if(e.key==='Escape')lb.classList.remove('open');if(e.key==='ArrowLeft')show(idx-1);if(e.key==='ArrowRight')show(idx+1)});
+
+// copy buttons
+$$('[data-copy]').forEach(b=>b.addEventListener('click',async()=>{
+  const t=b.dataset.copy;
+  try{await navigator.clipboard.writeText(t);b.textContent='Copied'}catch(e){const r=document.createRange();r.selectNodeContents(b.previousElementSibling);const s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Selected'}
+  setTimeout(()=>b.textContent='Copy',1600);
+}));
+
+// ---------- Lash Map canvas ----------
+const STYLES={
+  classic:{name:'Classic',desc:'One extension on each natural lash. Clean, defined and closest to mascara.',map:[8,9,10,11,11],feel:'Natural',fan:1,spread:0,thick:1.5,spikes:0,alpha:.95},
+  hybrid:{name:'Hybrid',desc:'A mix of classic singles and light handmade fans. Texture and fullness without full drama.',map:[8,9,10,11,12],feel:'Textured',fan:2.4,spread:.16,thick:1.05,spikes:0,alpha:.8},
+  volume:{name:'Volume',desc:'Be bold. Clusters of single lashes, hand made and formulated for your natural lashes and eye shape.',map:[9,10,11,12,12],feel:'Full · dramatic',fan:5,spread:.3,thick:.7,spikes:0,alpha:.62},
+  wispy:{name:'Wispy',desc:'Volume fans with longer spikes placed through the set for a fluffy, editorial look.',map:[9,10,11,12,13],feel:'Fluffy · editorial',fan:4.2,spread:.34,thick:.7,spikes:1,alpha:.62}
+};
+const cv=$('#lashCanvas'), ctx=cv.getContext('2d');
+let W=0,H=0,DPR=1; const cur={...STYLES.classic,map:[...STYLES.classic.map]}; let target=STYLES.classic;
+let mouse={x:-9999,y:-9999};
+function resize(){const r=cv.getBoundingClientRect();DPR=Math.min(2,devicePixelRatio||1);W=r.width;H=r.height;cv.width=W*DPR;cv.height=H*DPR;ctx.setTransform(DPR,0,0,DPR,0,0)}
+new ResizeObserver(resize).observe(cv); resize();
+cv.addEventListener('pointermove',e=>{const r=cv.getBoundingClientRect();mouse.x=e.clientX-r.left;mouse.y=e.clientY-r.top});
+cv.addEventListener('pointerleave',()=>{mouse.x=mouse.y=-9999});
+// deterministic noise per strand
+const rnd=(i,k)=>{const x=Math.sin(i*127.1+k*311.7)*43758.5453;return x-Math.floor(x)};
+const lerp=(a,b,t)=>a+(b-a)*t;
+function lid(t){ // eyelid curve: point and normal
+  const x0=W*.1,x1=W*.9, cxp=W*.48, cyp=H*.44, y0=H*.80, y1=H*.66;
+  const x=(1-t)*(1-t)*x0+2*(1-t)*t*cxp+t*t*x1;
+  const y=(1-t)*(1-t)*y0+2*(1-t)*t*cyp+t*t*y1;
+  const dx=2*(1-t)*(cxp-x0)+2*t*(x1-cxp), dy=2*(1-t)*(cyp-y0)+2*t*(y1-cyp);
+  const len=Math.hypot(dx,dy); return {x,y,nx:dy/len,ny:-dx/len};
+}
+function mapLen(t,m){ // piecewise across 5 zones, inner→outer
+  const z=t*(m.length-1), i=Math.min(m.length-2,Math.floor(z)), f=z-i; return lerp(m[i],m[i+1],f);
+}
+function draw(time){
+  // ease current params toward target
+  const k=.08; ['fan','spread','thick','spikes','alpha'].forEach(p=>cur[p]=lerp(cur[p],target[p],k));
+  cur.map=cur.map.map((v,i)=>lerp(v,target.map[i],k));
+  ctx.clearRect(0,0,W,H);
+  const scale=H*.027; // px per mm
+  // zone labels like the eye pad
+  ctx.font=`300 ${Math.max(11,H*.042)}px Jost, sans-serif`; ctx.textAlign='center';
+  for(let z=0;z<5;z++){
+    const t=.08+z*.21, p=lid(t), L=mapLen(t,cur.map)*scale+H*.13;
+    const lx=p.x+p.nx*L, ly=p.y+p.ny*L;
+    ctx.strokeStyle='rgba(237,175,86,.35)'; ctx.lineWidth=1; ctx.setLineDash([2,4]);
+    ctx.beginPath(); ctx.moveTo(p.x+p.nx*(L-H*.11),p.y+p.ny*(L-H*.11)); ctx.lineTo(p.x+p.nx*H*.02,p.y+p.ny*H*.02); ctx.stroke(); ctx.setLineDash([]);
+    ctx.fillStyle='#edaf56'; ctx.fillText(Math.round(mapLen(t,cur.map)), lx, ly);
+  }
+  // strands
+  const N=Math.round(W/6.5);
+  for(let i=0;i<N;i++){
+    const t=.02+.96*(i/(N-1)); const p=lid(t);
+    let len=mapLen(t,cur.map)*scale*(.86+rnd(i,1)*.2);
+    if(cur.spikes>.01 && i%7===0) len+=2.4*scale*cur.spikes;
+    // taper at the inner corner
+    len*=Math.min(1,.35+t*3.2);
+    const fanN=Math.max(1,Math.round(cur.fan*(.7+rnd(i,2)*.6)));
+    // breeze from pointer
+    const dm=Math.hypot(mouse.x-p.x,mouse.y-(p.y-len*.6)); const push=dm<140?(1-dm/140):0;
+    const sway=Math.sin(time*.0012+i*.35)*.03 + (mouse.x>p.x?-1:1)*push*.35;
+    for(let f=0;f<fanN;f++){
+      const off=fanN===1?0:(f/(fanN-1)-.5)*cur.spread;
+      const ang=Math.atan2(p.ny,p.nx)+off+sway+(t-.5)*.5;
+      const ex=p.x+Math.cos(ang)*len, ey=p.y+Math.sin(ang)*len;
+      // curl: control point bends the strand up (C/D curl)
+      const cxq=p.x+Math.cos(ang)*len*.55 - Math.sin(ang)*len*.05, cyq=p.y+Math.sin(ang)*len*.55 + len*.16;
+      const g=ctx.createLinearGradient(p.x,p.y,ex,ey); g.addColorStop(0,`rgba(243,234,220,${cur.alpha})`); g.addColorStop(1,'rgba(243,234,220,0)');
+      ctx.strokeStyle=g; ctx.lineWidth=cur.thick*(1-f*.04); ctx.lineCap='round';
+      ctx.beginPath(); ctx.moveTo(p.x,p.y); ctx.quadraticCurveTo(cxq,cyq-len*.32,ex,ey-len*.06); ctx.stroke();
+    }
+  }
+  // lid line
+  ctx.strokeStyle='#edaf56'; ctx.lineWidth=1.4; ctx.beginPath();
+  for(let s=0;s<=60;s++){const p=lid(s/60); s?ctx.lineTo(p.x,p.y):ctx.moveTo(p.x,p.y)} ctx.stroke();
+  if(!reduce) requestAnimationFrame(draw);
+}
+requestAnimationFrame(draw);
+$$('.styles button').forEach(b=>b.addEventListener('click',()=>{
+  $$('.styles button').forEach(x=>x.setAttribute('aria-pressed',x===b));
+  target=STYLES[b.dataset.style];
+  $('#sName').textContent=target.name; $('#sDesc').textContent=target.desc;
+  $('#sMap').textContent=target.map.join(' · '); $('#sFeel').textContent=target.feel;
+  if(reduce){Object.assign(cur,{...target,map:[...target.map]});requestAnimationFrame(draw)}
+}));
+})();
+</script>
+<!--BODY-END-->
+</body>
+</html>
